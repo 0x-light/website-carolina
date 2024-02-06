@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <title>Carolina Goldstein</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            background-color: #E5F1FF;
+            font-family: 'Libre Franklin', sans-serif;
+            color: #2c2f3e;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 30px;
+            position: fixed;
+            top: 0;
+            z-index: 2;
+        }
+        .menu-toggle {
+            display: none;
+            line-height: 26px;
+        }
+        nav {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 50px;
+            padding: 30px;
+        }
+        nav a {
+            margin-bottom: 15px;
+            opacity: .5;
+            transition: .2s ease;
+            cursor: pointer;
+            color: #000;
+            text-decoration: none;
+        }
+        nav a:hover {
+            opacity: 1;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 30px;
+            margin: 80px auto;
+            overflow: hidden;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 21px;
+            font-weight: 400;
+            margin-top: 0;
+        }
+        .article-view {
+            width: 700px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .article-view h1 {
+            font-size: 40px;
+            font-weight: 400;
+        }
+        .article-view p {
+            line-height: 26px;
+        }
+        .article-view img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .end {
+            text-align: center;
+        }
+        @media (max-width: 900px) {
+            .container {
+                margin: 90px 0 0 0;
+            }
+            .menu-toggle {
+                display: block;
+                margin: 0;
+            }
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                position: fixed;
+                top: 0;
+                padding: 80px 30px 15px 30px;
+                width: 100%;
+                background-color: #E5F1FF;
+                border-bottom: 1px solid black;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Carolina Goldstein</h1>
+        <p class="menu-toggle">Menu</p>
+    </header>
+
+    <nav>
+        <a>Articles</a>
+        <a target="_blank" href="https://x.com/golddefi">Twitter</a>
+        <a target="_blank" href="https://www.linkedin.com/in/carolina-goldstein/">LinkedIn</a>
+        <a>Get in touch</a>
+    </nav>
+
+    <div class="container">
+        <div class="article-view">
+            <h1>Can the next bull bring true adoption?</h1>
+            <p>by <b>Carolina Goldstein</b> • Tuesday, January 30 2024</p>
+            <p>Crypto's bullish cycles attract industry newcomers, but sustaining interest and users beyond the hype presents a challenge. The data highlights a clear correlation: adoption metrics rise alongside peak market capitalization in each bull run. In the last cycle, market cap surged from $300 billion in summer 2020 to nearly $3 trillion in November 2021, only to contract to $800 billion within a year. The Chainalysis global crypto adoption index further reinforces the parallel between adoption and market cap during that period.</p>
+            <img src="article_8_image_1.png">
+            <img src="article_8_image_2.png">
+            <p>As of late October, a shift in market sentiment is evident, with the global market cap doubling to approximately $1.6 trillion since its recent low point. The latest impressive 11-week streak of positive inflows to crypto funds suggests new attention, but can this cycle bring lasting adoption?</p>
+            <img src="article_8_image_3.png">
+            <h1>Why is widespread adoption of crypto important?</h1>
+            <p>Crypto strives for global financial inclusion by overcoming traditional banking barriers and geographical limits. Eliminating intermediaries and reducing transaction costs enables swift, cost-effective cross-border transfers. Widespread adoption democratizes investment, granting retail investors access to DeFi and opportunities previously exclusive to financial institutions.</p>
+            <p>Additionally, crypto adoption drives technological innovation, expanding applications to sectors like supply chain management, healthcare, and voting systems. It elevates standards for trust and transparency through immutable record-keeping, mitigating the potential for fraud and corruption.</p>
+            <h1>How far are we?</h1>
+            <p>Bull markets raise awareness, a crucial first step. Institutional adoption, influenced by political and regulatory acceptance, leads the path to individual adoption. A future where cryptocurrencies seamlessly integrate into daily life requires addressing key challenges.</p>
+            <h1>Security</h1>
+            <p>Security concerns in DeFi pose a significant hurdle to widespread adoption. The recent attack on a widely used library within Ledger’s ConnectKit reminded us of these vulnerabilities, leading to a loss of $500k USD in crypto and temporary halts in projects. Despite Ledger's quick response, the fact that one of the most popular hardware wallet providers is subject to security breaches is concerning.</p>
+            <p>Encouragingly, 2023 shows a positive trend with a 50% decrease in hack volumes compared to the previous year.</p>
+            <p>Increased attention and accountability in centralized exchanges, exemplified by figures like Binance's CZ stepping down and paying fines, indicate industry advancement. Unlike FTX's sudden downfall causing a two-year market cap low of $796 billion, prompt identification and rectification of leadership mistakes offer reassurance. In a secure and regulated environment, the FTX scenario might have been effectively managed.</p>
+            <h1>Regulatory clarity</h1>
+            <p>Establishing clear rules in the crypto industry is vital for earning trust from major players. While the "Move fast and break things" mantra is effective initially, it's not the ideal approach to win over the masses. Previously, for institutions venturing into blockchain it felt like building construction projects in a politically unstable country — uncertainty about project shutdowns, team availability, and project usability for clients. The global trend towards clearer crypto rules, notably in Europe, Singapore, Hong Kong, and the UAE, not only averts chaos but also transforms these locations into digital innovation hubs.</p>
+            <h1>Ease of use</h1>
+            <p>Long-time crypto participants already notice significant DeFi user experience improvements. Innovations like Account Abstraction (AA) via ERC-4337 and native integration in Layer 2 solutions such as zkSync, aim to elevate crypto’s user experience to web2 levels. AA introduces key benefits, enabling smart contracts as primary accounts with features like two-factor authentication and Social Recovery, removing the need for owners to manage seed phrases—a responsibility unfamiliar in web2 and potentially intimidating. Smart contract wallets enable gasless transactions and multiple actions in one transaction through the Multicall feature. The support for multiple valid signers in smart contract wallets, crucial for organizations, highlights the potential for mainstream adoption.</p>
+            <p>Though in an early phase, broad support from top-tier DeFi protocols is vital for mainstream integration of smart contract wallets. On-ramping is also becoming more streamlined, with solutions like Moonpay, Revolut, or Ramp connecting credit cards to Metamask in under 10 minutes.</p>
+            <p>Chain abstraction progress, led by Connext and similar protocols, is crucial for widespread DeFi adoption. The goal is user empowerment without navigating blockchain complexities. Users should access DeFi without delving into ETH versus L2s, L1s, or intricacies of the Cosmos ecosystem.</p>
+            <h1>Institutional Involvement</h1>
+            <p>Institutional adoption drives crypto acceptance, evident in growing ETF filings post-BlackRock's announcement. Beyond financial investments, institutional adoption extends to service providers streamlining crypto's interoperability with daily life, such as salaries and payment methods. Blockchains like Solana, processing 65,000 transactions per second, already exceed the throughput needs of traditional giants like Mastercard and Visa. Visa's recent partnership with Solana signals a notable evolution in payment systems.</p>
+            <p>Institutional-grade custody solutions are crucial for secure entry of financial institutions into crypto-related products. BlackRock's collaboration with Coinbase for the BlackRock ETF emphasizes the role of licensed digital asset custodians like Coinbase, Gemini or Anchorage in enabling financial institutions to integrate digital assets into their business operations in a safe, scalable, compliant manner.</p>
+            <p>Institutions are actively building solutions, as seen in the Canton Network announced by Goldman Sachs, BNP Paribas, Deloitte, and over 30 firms. This privacy-enabled, interoperable blockchain network targets traditional financial market participants and institutional assets.</p>
+            <p>Building in the crypto space becomes more accessible with user-friendly, no-code environments like Metis, a Layer-2 solution looking to empower smaller businesses. This shift aligns with the industry's focus on tokenization and RWAs. Leaders like BlackRock endorse this surge, foreseeing a $290 trillion unlock in new market assets, offering unique investment and liquidity opportunities.</p>
+            <h1>Key takeaways</h1>
+            <p>Amidst transformative shifts in the crypto landscape, the rise of account and chain abstraction is a pivotal catalyst, aligning user experience with familiar standards. Large protocols must embrace this change for industry advancement.</p>
+            <p>While security concerns persist, encouraging signs indicate progress, with standardized processes and regulatory frameworks contributing to improvement. The evolving regulatory landscape instills confidence among institutions, fostering a safer crypto environment.</p>
+            <p>Institutions are actively participating, driven by the promise of ETFs and the integration of large payment networks, facilitating everyday crypto use. The exciting potential of this cycle lies in the start of real widespread adoption, showcasing the industry's resilience and maturation.</p>
+            <p class="end">✢</p>
+        </div>
+        
+    </div>
+
+    <script>
+    </script>
+</body>
+</html>
