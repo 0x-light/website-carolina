@@ -169,7 +169,7 @@
             background-color: #2c2f3e;
         }
 
-        @media (max-width: 1200px) {
+        @media (max-width: 950px) {
 
             body {
                 display: flex;
@@ -180,6 +180,7 @@
 
             #about-me {
                 position: unset;
+                width: 100%;
             }
 
             .links {
@@ -243,19 +244,16 @@
 
     <div id="about-me" class="container">
         <h1>Carolina Goldstein</h1>
-        <p>I’m currently leading the Economic Modeling team at <a href="https://threesigma.xyz">Three Sigma</a>,
+        <p>I am currently leading the Economic Modeling team at <a href="https://threesigma.xyz">Three Sigma</a>,
             where I delve into market risk evaluation, parameter optimization, competitive analysis, tokenomics
             advisory, and mechanism design for DeFi protocols.</p>
-        <p>Research is my second main focus, where I explore different DeFi market segments and engage in both macro
-            overviews as well as detailed analyses of financial topics, particularly at the application level.</p>
-        <p>My basic formal education is in Mathematics applied to Economics and I mastered in Analysis and
-            Enginnering of Big Data. I’m interested in all things analytics, finance and crypto.</p>
-        <p>Reach me on <a href="https://twitter.com/GoldDefi">X</a>, on Telegram @carolinagold, or by email at
-            carolinamgoldstein@gmail.com.</p>
+        <p>Research is at the heart of what I do, where I explore different DeFi market segments and engage in both macro overviews as well as detailed analyses of financial topics and crypto products, particularly at the application level.</p>
+        <p>My academic journey began with a foundation in Mathematics applied to Economics, followed by a Master’s in Big Data Analysis and Engineering. My interest lies at the intersection of analytics, finance, and crypto, where I seek to push the boundaries of knowledge and make impactful contributions.</p>
+
         <div class="links">
             <a target="_blank" href="https://x.com/golddefi">X</a>
-            <a target="_blank" href="https://www.linkedin.com/in/carolina-goldstein/">Telegram</a>
-            <a target="_blank" href="https://www.linkedin.com/in/carolina-goldstein/">Email</a>
+            <a href="#" id="copyTelegram" data-username="carolinagold" onclick="copyToClipboard('copyTelegram', 'Telegram')">Telegram</a>
+            <a href="#" id="copyEmail" data-username="carolinamgoldstein@gmail.com" onclick="copyToClipboard('copyEmail', 'Email')">Email</a>
             <a target="_blank" href="https://www.linkedin.com/in/carolina-goldstein/">LinkedIn</a>
         </div>
     </div>
@@ -3735,6 +3733,23 @@
         window.addEventListener('scroll', dimNav);
         nav.addEventListener('mouseover', undimNav);
         nav.addEventListener('mouseout', dimNav);
+
+        function copyToClipboard(elementId, originalText) {
+        // Get the text from the element
+        var text = document.getElementById(elementId).getAttribute('data-username');
+        // Copy the text to the clipboard
+        navigator.clipboard.writeText(text).then(function() {
+            // Change the text to show "Copied!" temporarily
+            var element = document.getElementById(elementId);
+            element.innerText = 'Copied';
+            setTimeout(function() {
+            // Change the text back to the original text after 1.5 seconds
+            element.innerText = originalText;
+            }, 1500);
+        }, function(err) {
+            console.error('Could not copy text: ', err);
+        });
+        }
 
     </script>
 </body>
