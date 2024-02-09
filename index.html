@@ -2,14 +2,6 @@
 <html lang="en">
 
 <head>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script>
-        MathJax = {
-            tex: {
-                inlineMath: [['$', '$']]
-            }
-        };
-    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,18 +20,7 @@
             background-color: #E5F1FF;
             font-family: 'Libre Franklin', sans-serif;
             color: #2c2f3e;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 30px;
-            background-color: #E5F1FF;
-            transition: opacity .5s ease;
-            z-index: 2;
+            line-height: 26px;
         }
 
         #menu-toggle {
@@ -54,47 +35,57 @@
             display: flex;
             flex-direction: column;
             position: fixed;
-            top: 50px;
-            padding: 30px;
-            max-width: 400px;
+            top: 0;
+            padding: 60px;
             transition: opacity .2s ease;
+            position: fixed;
+            right: 0;
+            width: calc(100% - 550px);
+            bottom: 0;
+            overflow: auto;
         }
 
-        nav.dimmed,
-        header.dimmed {
-            opacity: .4;
-            transition: opacity .5s ease;
-        }
-
-        nav a {
-            font-size: 16px;
-            margin-bottom: 15px;
-            opacity: .5;
-            transition: .2s ease;
-            cursor: pointer;
-            color: #000;
+        a {
+            color: #2c2f3e;
             text-decoration: none;
-            user-select: none;
-        }
-
-        nav a:hover {
-            opacity: 1;
+            border-bottom: 1px solid #2c2f3e;
         }
 
         .menu-articles {
             display: flex;
             flex-direction: column;
-            height: 0;
-            padding: 0 0 0 20px;
-            overflow: hidden;
         }
 
-        .menu-articles.open {
-            height: fit-content;
+        .menu-articles a {
+            border-bottom: none;
+            margin-bottom: 30px;
         }
 
-        .article-link.current { 
-            opacity: 1;
+        #about-me {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 550px;
+            max-width: 100%;
+            margin: 0;
+            border-right: 1px solid #2c2f3e2e;
+        }
+
+        #about-me h1,
+        nav h1 {
+            font-size: 30px;
+            font-weight: 400;
+            margin: 0 0 35px 0;
+        }
+
+        .links {
+            position: fixed;
+            bottom: 60px;
+        }
+
+        .links a {
+            border: none;
+            margin-right: 25px;
         }
 
         body {
@@ -103,12 +94,34 @@
         }
 
         .container {
-            padding: 30px;
-            margin: 80px auto;
+            padding: 60px;
             overflow: hidden;
         }
 
-        header h1 {
+        .article.open {
+            width: 100%;
+            display: block;
+            position: relative;
+            padding: 140px 60px 60px 60px;
+            background-color: #E5F1FF;
+            z-index: 2;
+        }
+
+        .close {
+            position: fixed;
+            top: 60px;
+            left: 60px;
+            border: none;
+            cursor: pointer;
+            padding: 7px 17px;
+            background-color: #E5F1FF;
+        }
+
+        .home {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 60px;
             margin: 0;
             font-size: 16px;
             font-weight: 400;
@@ -129,16 +142,12 @@
         .article-view h1 {
             font-size: 40px;
             font-weight: 400;
+            line-height: 50px;
+            margin: 0 0 35px 0;
         }
 
         .article-view p {
             line-height: 26px;
-        }
-
-        .article-view a {
-            color: #2c2f3e;
-            text-decoration: none;
-            border-bottom: 1px solid #2c2f3e;
         }
 
         .article-view img {
@@ -160,46 +169,48 @@
             background-color: #2c2f3e;
         }
 
-        @media (max-width: 1550px) {
-            .container.article {
-                padding: 30px 30px 30px 400px;
-            }
-        }
-
         @media (max-width: 1200px) {
-            .container.article {
-                margin: 35px 0 0 0;
-                padding: 30px;
+
+            body {
+                display: flex;
+                flex-direction: column-reverse;
+                margin: 0;
+                padding: 0;
             }
 
-            #menu-toggle {
-                display: block;
-                position: fixed;
-                top: 0;
-                right: 0;
-                margin: 0;
-                padding: 30px;
+            #about-me {
+                position: unset;
+            }
+
+            .links {
+                position: unset;
             }
 
             nav {
-                display: none;
-                flex-direction: column;
-                position: fixed;
-                top: 0;
-                padding: 80px 30px 15px 30px;
+                position: unset;
+                padding: 30px;
                 width: 100%;
-                max-width: unset;
-                background-color: #E5F1FF;
-                bottom: 0;
+                border-top: 1px solid #2c2f3e2e;
                 overflow: auto;
             }
 
-            .menu-articles.open {
-                overflow: unset;
+            .article.open {
+                position: fixed;
+                padding: 80px 30px 30px 30px;
+                top: 0;
+                bottom: 0;
+                overflow: auto;
+                overscroll-behavior: contain;
             }
 
-            nav.open {
-                display: flex;
+            .close {
+                top: 15px;
+                left: 15px;
+                border-radius: 30px;
+            }
+
+            .container {
+                padding: 30px;
             }
 
             nav.dimmed,
@@ -215,32 +226,44 @@
 </head>
 
 <body>
-    <header>
-        <h1>Carolina Goldstein</h1>
-        <p id="menu-toggle">Menu</p>
-    </header>
 
     <nav>
-        <a id="toggle-articles">Articles</a>
+        <h1>Writing</h1>
         <div class="menu-articles">
-            <a href="#article1" class="article-link">Article 1</a>
-            <a href="#article2" class="article-link">Article 2</a>
-            <a href="#article3" class="article-link">Article 3</a>
-            <a href="#article4" class="article-link">Article 4</a>
-            <a href="#article5" class="article-link">Article 5</a>
-            <a href="#article6" class="article-link">Article 6</a>
-            <a href="#article7" class="article-link">Article 7</a>
-            <a href="#article8" class="article-link">Article 8</a>
+            <a href="#article1" class="article-link"></a>
+            <a href="#article2" class="article-link"></a>
+            <a href="#article3" class="article-link"></a>
+            <a href="#article4" class="article-link"></a>
+            <a href="#article5" class="article-link"></a>
+            <a href="#article6" class="article-link"></a>
+            <a href="#article7" class="article-link"></a>
+            <a href="#article8" class="article-link"></a>
         </div>
-
-        <a target="_blank" href="https://x.com/golddefi">Twitter</a>
-        <a target="_blank" href="https://www.linkedin.com/in/carolina-goldstein/">LinkedIn</a>
-        <a>Get in touch</a>
     </nav>
+
+    <div id="about-me" class="container">
+        <h1>Carolina Goldstein</h1>
+        <p>I’m currently leading the Economic Modeling team at <a href="https://threesigma.xyz">Three Sigma</a>,
+            where I delve into market risk evaluation, parameter optimization, competitive analysis, tokenomics
+            advisory, and mechanism design for DeFi protocols.</p>
+        <p>Research is my second main focus, where I explore different DeFi market segments and engage in both macro
+            overviews as well as detailed analyses of financial topics, particularly at the application level.</p>
+        <p>My basic formal education is in Mathematics applied to Economics and I mastered in Analysis and
+            Enginnering of Big Data. I’m interested in all things analytics, finance and crypto.</p>
+        <p>Reach me on <a href="https://twitter.com/GoldDefi">X</a>, on Telegram @carolinagold, or by email at
+            carolinamgoldstein@gmail.com.</p>
+        <div class="links">
+            <a target="_blank" href="https://x.com/golddefi">X</a>
+            <a target="_blank" href="https://www.linkedin.com/in/carolina-goldstein/">Telegram</a>
+            <a target="_blank" href="https://www.linkedin.com/in/carolina-goldstein/">Email</a>
+            <a target="_blank" href="https://www.linkedin.com/in/carolina-goldstein/">LinkedIn</a>
+        </div>
+    </div>
 
     <!-- Article 8 -->
 
     <div id="article8" class="article container">
+        <a class="close">Back</a>
         <div class="article-view">
             <h1>Can the next bull bring true adoption?</h1>
             <p>by <b>Carolina Goldstein</b> • Wednesday, December 20 2023</p>
@@ -342,8 +365,8 @@
     <!-- Article 7 -->
     <!-- helpers: <p></p>  <img src="article_8_image_1.png"> <h2>Introduction</h2> -->
 
-
     <div id="article7" class="article container">
+        <a class="close">Back</a>
         <div class="article-view">
             <h1>Exploring the DeFi Tokenomics Landscape</h1>
             <p>by <b>Carolina Goldstein</b> and <b>Tiago Fernandes</b> • Tuesday, October 17 2023 • Published at <a
@@ -775,15 +798,13 @@
                 our game and explore the potential for new token economies!</p>
             <p class="end">✢</p>
         </div>
-
-
-
     </div>
 
     <!-- Article 6 -->
     <!-- helpers: <p></p>  <img src="article_8_image_1.png"> <h2>Introduction</h2> -->
 
     <div id="article6" class="article container">
+        <a class="close">Back</a>
         <div class="article-view">
             <h1>Volatility Series Part II - Applying GARCH Models to Crypto Assets</h1>
             <p>by <b>Carolina Goldstein</b> and <b>Joana Gomes</b> • Wednesday, April 28 2023 • Published at <a
@@ -1016,15 +1037,13 @@
                 Bureau of Economic Research. https://doi.org/10.3386/w24877</p>
             <p class="end">✢</p>
         </div>
-
-
-
     </div>
 
     <!-- Article 5 -->
     <!-- helpers: <p></p>  <img src="article_8_image_1.png"> <h2>Introduction</h2> -->
 
     <div id="article5" class="article container">
+        <a class="close">Back</a>
         <div class="article-view">
             <h1>Volatility Series Part I - Modelling Volatility in Crypto Assets</h1>
             <p>by <b>Carolina Goldstein</b> and <b>Joana Gomes</b> • Thursday, April 20 2023 • Published at <a
@@ -1313,15 +1332,13 @@
                 https://doi.org/10.1186/s40854-022-00430-w</p>
             <p class="end">✢</p>
         </div>
-
-
-
     </div>
 
     <!-- Article 4 -->
     <!-- helpers: <p></p>  <img src="article_8_image_1.png"> <h2>Introduction</h2> -->
 
     <div id="article4" class="article container">
+        <a class="close">Back</a>
         <div class="article-view">
             <h1>On Tokenomics Series Part II - The Game of Supply and Demand: The Demand</h1>
             <p>by <b>Carolina Goldstein</b> and <b>Joana Gomes</b> • Tuesday, April 4 2023 • Published at <a
@@ -1550,9 +1567,6 @@
                 https://taschalabs.com/the-curious-effect-of-token-supply-on-price/</p>
             <p class="end">✢</p>
         </div>
-
-
-
     </div>
 
 
@@ -1560,6 +1574,7 @@
     <!-- helpers: <p></p>  <img src="article_8_image_1.png"> <h2>Introduction</h2> -->
 
     <div id="article3" class="article container">
+        <a class="close">Back</a>
         <div class="article-view">
             <h1>On Tokenomics Series Part I - The Game of Supply and Demand: The Supply</h1>
             <p>by <b>Carolina Goldstein</b> and <b>Joana Gomes</b> • Tuesday, March 28 2023 • Published at <a
@@ -1806,15 +1821,13 @@
                 https://academy.binance.com/en/articles/what-is-bnb-auto-burn</p>
             <p class="end">✢</p>
         </div>
-
-
-
     </div>
 
     <!-- Article 2 -->
     <!-- helpers: <p></p>  <img src="article_8_image_1.png"> <h2>Introduction</h2> -->
 
     <div id="article2" class="article container">
+        <a class="close">Back</a>
         <div class="article-view">
             <h1>The SVB Collapse: A Wake Up Call for Better Risk Management</h1>
             <p>by <b>Carolina Goldstein</b> and <b>Joana Gomes</b> • Wednesday, March 15 2023 • Published at <a
@@ -1886,15 +1899,13 @@
                 on the banks holding their funds.</p>
             <p class="end">✢</p>
         </div>
-
-
-
     </div>
 
     <!-- Article 1 -->
     <!-- helpers: <p></p>  <img src="article_8_image_1.png"> <h2>Introduction</h2> -->
 
     <div id="article1" class="article container">
+        <a class="close">Back</a>
         <div class="article-view">
             <h1>The Hitchhiker's Guide to DeFi Insurance</h1>
             <p>by <b>Carolina Goldstein</b>, <b>Catarina Urgueira</b> and <b>Tomás Palmeirim</b> • Monday, October 31
@@ -3628,9 +3639,6 @@
             <p>Please get in touch with us at info@threesigma.xyz.</p>
             <p class="end">✢</p>
         </div>
-
-
-
     </div>
 
     <script>
@@ -3638,62 +3646,64 @@
         // Article menu
         const toggleButton = document.getElementById('toggle-articles');
         const articlesMenu = document.querySelector('.menu-articles');
-
-        toggleButton.addEventListener('click', function () {
-            articlesMenu.classList.toggle('open');
-        });
-
-        const articles = document.querySelectorAll('.container');
-
-        // Function to show a specific article
-        function showArticle(articleId) {
-            articles.forEach(article => article.style.display = 'none');
-            document.getElementById(articleId).style.display = 'block';
-        }
-
-        // Function to extract titles and update links
-        function updateLinks() {
-            const links = document.querySelectorAll('a[href^="#article"]');
-            articles.forEach(article => {
-                const articleId = article.id;
-                const title = article.querySelector('h1').textContent;
-                links.forEach(link => {
-                    if (link.hash === `#${articleId}`) {
-                        link.textContent = title;
-                    }
-                });
-            });
-        }
-
-        // Call the updateLinks function initially
-        updateLinks();
-
-        document.addEventListener('click', function (event) {
-            if (event.target.tagName === 'A' && event.target.classList.contains('article-link')) {
-                event.preventDefault();
-                const articleId = event.target.hash.substring(1);
-
-                // Remove 'current' from all links:
-                document.querySelectorAll('.article-link').forEach(link => {
-                link.classList.remove('current');
-                });
-
-                // Add 'current' to the clicked link:
-                event.target.classList.add('current');
-
-                showArticle(articleId);
-                window.scrollTo(0, 0);
-                navigation.classList.toggle('open');
-                articles.classList.toggle('menu-dim');
-            }
-        });
-
-        // Mobile menu
         const menuToggle = document.getElementById('menu-toggle');
         const navigation = document.querySelector('nav');
         const articlesContainer = document.querySelector('.container.articles'); // Get the parent container
 
-            menuToggle.addEventListener('click', function() {
+        document.addEventListener('DOMContentLoaded', function () {
+            // Populate links with the corresponding article titles
+            document.querySelectorAll('.article-link').forEach(link => {
+                // Get the ID of the corresponding article
+                const articleId = link.getAttribute('href').substring(1);
+                const article = document.getElementById(articleId);
+
+                // Find the h1 in the article and set link text
+                if (article) {
+                    const title = article.querySelector('.article-view h1');
+                    if (title) {
+                        link.textContent = title.textContent;
+                    }
+                }
+            });
+
+            // Attach click event to article links
+            document.querySelectorAll('.article-link').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault(); // Prevent default anchor behavior
+
+                    // Get the ID of the article to show
+                    const articleId = this.getAttribute('href').substring(1);
+                    const article = document.getElementById(articleId);
+
+                    // Remove .open from all articles
+                    document.querySelectorAll('.article.container').forEach(article => {
+                        article.classList.remove('open');
+                    });
+
+                    // Add .open to the clicked article
+                    if (article) {
+                        article.classList.add('open');
+                    }
+                });
+            });
+
+            // Attach click event to close links
+            document.querySelectorAll('.article .close').forEach(closeLink => {
+                closeLink.addEventListener('click', function (e) {
+                    e.preventDefault(); // Prevent default anchor behavior
+
+                    // Find the parent article container and remove .open
+                    let parentArticle = this.closest('.article.container');
+                    if (parentArticle) {
+                        parentArticle.classList.remove('open');
+                    }
+                });
+            });
+        });
+
+
+        // Mobile menu
+        menuToggle.addEventListener('click', function () {
             navigation.classList.toggle('open');
             articlesContainer.classList.toggle('menu-dim'); // Toggle on articles container
         });
